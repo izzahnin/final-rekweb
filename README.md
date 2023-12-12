@@ -1,5 +1,5 @@
 ![image](https://github.com/izzahnin/final-rekweb/assets/88815934/c995de50-74ff-4d2c-8bef-92056b32466f)
-![image](https://github.com/izzahnin/final-rekweb/assets/88815934/8b237f5b-ae6b-4262-b101-621a477f2de2)
+![image](https://github.com/izzahnin/final-rekweb/assets/88815934/1afea1b0-aa70-466f-adc3-85138a99f1af)
 ![image](https://github.com/izzahnin/final-rekweb/assets/88815934/bb61e736-3407-49f2-ac96-af8c36936bc9)
 ![image](https://github.com/izzahnin/final-rekweb/assets/88815934/279fc84a-2d45-485a-b6d3-c4d06ff806af)
 
