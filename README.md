@@ -1,7 +1,8 @@
-![image](https://github.com/izzahnin/final-rekweb/assets/88815934/d795c45a-c54e-45cb-bac5-b88757fab1e4)
-![image](https://github.com/izzahnin/final-rekweb/assets/88815934/d0868436-fd79-475d-81ab-a8aca05a8a0c)
-![image](https://github.com/izzahnin/final-rekweb/assets/88815934/9de3f429-5e5d-4746-9964-f244fdba8c8a)
-![image](https://github.com/izzahnin/final-rekweb/assets/88815934/8edcfcfd-52c1-474b-ad2f-b714af0413ea)
+![image](https://github.com/izzahnin/final-rekweb/assets/88815934/c995de50-74ff-4d2c-8bef-92056b32466f)
+![image](https://github.com/izzahnin/final-rekweb/assets/88815934/8b237f5b-ae6b-4262-b101-621a477f2de2)
+![image](https://github.com/izzahnin/final-rekweb/assets/88815934/bb61e736-3407-49f2-ac96-af8c36936bc9)
+![image](https://github.com/izzahnin/final-rekweb/assets/88815934/279fc84a-2d45-485a-b6d3-c4d06ff806af)
+
 
 
 
