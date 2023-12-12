@@ -18,6 +18,10 @@ use App\Http\Controllers\BookController;
 |
 */
 Route::resource('/book', BookController::class);
+Route::get('/book', [BookController::class, 'index']);
+Route::post('/book', [BookController::class, 'store']);
+Route::put('/book/{id}', [BookController::class, 'update']);
+Route::delete('/book/{id}', [BookController::class, 'destroy']);
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [

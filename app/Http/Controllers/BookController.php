@@ -8,53 +8,44 @@ use Inertia\Inertia;
 
 class BookController extends Controller
 {
-    //
-    public function index() {
+    public function index()
+    {
         $books = Book::all();
         return Inertia::render('Book/Index', compact('books'));
-    }
-    public function create()
-    {
-        return Inertia::render('Book/Create');
     }
 
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'author' => 'required',
-            'isbn' => 'required',
-            'description' => 'required',
-        ]);
-
-        Book::create($request->all());
-
-        return redirect()->route('books.index')->with('success', 'Book created successfully');
+        try {
+            Book::create($request->all());
+            return response()->json(['message' => 'Book added successfully'], 200);
+        } catch (\Exception $e) {
+            logger()->error($e);
+            return response()->json(['error' => 'Internal Server Error'], 500);
+        }
     }
 
-    public function edit(Book $book)
+    public function update(Request $request, $id)
     {
-        return Inertia::render('Book/Edit', compact('book'));
+        try {
+            $book = Book::findOrFail($id);
+            $book->update($request->all());
+            return response()->json(['message' => 'Book updated successfully'], 200);
+        } catch (\Exception $e) {
+            logger()->error($e);
+            return response()->json(['error' => 'Internal Server Error'], 500);
+        }
     }
 
-    public function update(Request $request, Book $book)
+    public function destroy($id)
     {
-        $request->validate([
-            'title' => 'required',
-            'author' => 'required',
-            'isbn' => 'required',
-            'description' => 'required',
-        ]);
-
-        $book->update($request->all());
-
-        return redirect()->route('books.index')->with('success', 'Book updated successfully');
-    }
-
-    public function destroy(Book $book)
-    {
-        $book->delete();
-
-        return redirect()->route('books.index')->with('success', 'Book deleted successfully');
+        try {
+            $book = Book::findOrFail($id);
+            $book->delete();
+            return response()->json(['message' => 'Book deleted successfully'], 200);
+        } catch (\Exception $e) {
+            logger()->error($e);
+            return response()->json(['error' => 'Internal Server Error'], 500);
+        }
     }
 }

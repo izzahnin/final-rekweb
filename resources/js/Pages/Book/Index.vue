@@ -57,7 +57,6 @@
 
 <script setup>
   const { books } = defineProps(["books"]);
-
   import axios from 'axios';
   import { ref } from 'vue';
 
@@ -91,26 +90,59 @@ const hideModal = () => {
   resetForm();
 };
 
-const submitForm = () => {
-  console.log('Form Data:', form.value);
-  hideModal();
-};
-
-
-const deleteBook = (id) => {
-  const confirmDelete = window.confirm('Are you sure you want to delete this book?');
-
-  if (confirmDelete) {
-    axios.delete(`/books/${id}`)
-      .then(() => {
-        console.log('Book deleted successfully');
-        Inertia.reload();
-      })
-      .catch((error) => {
-        console.error('Error deleting book:', error);
-      });
+const addBook = async () => {
+  try {
+    await axios.post('/book', form.value);
+    hideModal();
+  } catch (error) {
+    console.error('Error adding book:', error);
   }
 };
+
+
+const updateBook = async () => {
+    try {
+      await axios.put(`/book/${form.value.id}`, form.value);
+      hideModal();
+    } catch (error) {
+      console.error('Error updating book:', error);
+    }
+  };
+
+  const removeBook = async (id) => {
+    try {
+      await axios.delete(`/book/${id}`);
+      window.location.reload();
+    } catch (error) {
+      console.error('Error deleting book:', error);
+    }
+  };
+
+
+const submitForm = async () => {
+  try {
+      if (modalAction.value === 'Tambah') {
+        await addBook();
+      } else if (modalAction.value === 'Simpan') {
+        await updateBook();
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    } finally {
+      hideModal();
+      window.location.reload();
+    }
+};
+
+  const deleteBook = async (id) => {
+    try {
+      if (confirm('Are you sure you want to delete this book?')) {
+        await removeBook(id);
+      }
+    } catch (error) {
+      console.error('Error deleting book:', error);
+    }
+  };
 
 const resetForm = () => {
   form.value = {
@@ -121,4 +153,6 @@ const resetForm = () => {
     isbn: ''
   };
 };
+
+
 </script>
